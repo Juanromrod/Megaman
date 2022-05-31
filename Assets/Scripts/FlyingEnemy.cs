@@ -10,12 +10,14 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] GameObject efectodemuerte;
     [SerializeField] float vida = 5;
     private Player scriptplayer;
+    [SerializeField] AudioClip sonidoMuerte;
 
     // Start is called before the first frame update
     void Start()
     {
         myPath = GetComponent<AIPath>();
         scriptplayer = GameObject.Find("Player").GetComponent<Player>();
+        scriptplayer.enemigos += 1;
     }
 
     // Update is called once per frame
@@ -78,5 +80,6 @@ public class FlyingEnemy : MonoBehaviour
     {
         Instantiate(efectodemuerte, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+        scriptplayer.enemigos -= 1;
     }
 }

@@ -1,0 +1,11 @@
+.mi-btn {
+    height: 36px;
+    width: 126px;
+    background-color: rgb(0, 10, 255);
+}
+
+.mi-btn:hover {
+    height: 36px;
+    width: 126px;
+    background-color: rgb(0, 10, 105);
+}

@@ -8,15 +8,19 @@ public class Turret : MonoBehaviour
     [SerializeField] GameObject destroyed;
     [SerializeField] GameObject bullet;
     [SerializeField] float distance;
-    [SerializeField] float vida = 5;
+    public float vida = 5;
     Rigidbody2D myBody;
     [SerializeField] bool Inverted; 
     [SerializeField] float firerate;
     private float nextfire = 0f;
+    private Player scriptplayer;
+    public AudioClip sonidoMuerte;
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+        scriptplayer = GameObject.Find("Player").GetComponent<Player>();
+        scriptplayer.enemigos += 1;
     }
 
     // Update is called once per frame
@@ -57,6 +61,7 @@ public class Turret : MonoBehaviour
         }
         /*myAnim.SetBool("isDestroyed", true);
         myBody.position = new Vector2(myBody.position.x, myBody.position.y - 0.5f);*/
+        scriptplayer.enemigos -= 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

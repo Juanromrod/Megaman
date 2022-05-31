@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemigo
   - Proyectil
+  - Pared
+  - Limite
   layers:
   - Default
   - TransparentFX
